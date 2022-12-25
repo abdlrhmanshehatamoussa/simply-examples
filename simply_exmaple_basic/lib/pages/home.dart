@@ -11,20 +11,21 @@ class TestWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text("Simple Restuarant")),
       body: Center(
-          child: FutureBuilder<List<String>>(
-        future: menuItemsRepo.getMenuItemNames(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const CircularProgressIndicator();
-          }
-          return ListView.builder(
-            itemBuilder: (context, index) => ListTile(
-              title: Text(snapshot.data![index]),
-            ),
-            itemCount: snapshot.data!.length,
-          );
-        },
-      )),
+        child: FutureBuilder<List<String>>(
+          future: menuItemsRepo.getMenuItemNames(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return const CircularProgressIndicator();
+            }
+            return ListView.builder(
+              itemBuilder: (context, index) => ListTile(
+                title: Text(snapshot.data![index]),
+              ),
+              itemCount: snapshot.data!.length,
+            );
+          },
+        ),
+      ),
     );
   }
 }
