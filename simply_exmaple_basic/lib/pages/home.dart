@@ -7,8 +7,7 @@ class TestWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var menuItemsRepo =
-        SimpleServiceProvider.of(context).getService<IMenuItemsRepo>();
+    var menuItemsRepo = SimpleServiceProvider.of<IMenuItemsRepo>(context);
     return Scaffold(
       appBar: AppBar(title: const Text("Simple Restuarant")),
       body: Center(
