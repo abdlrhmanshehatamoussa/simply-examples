@@ -1,6 +1,6 @@
 import 'package:simply/simply.dart';
 
-abstract class IMenuItemsRepo extends ISimpleService {
+abstract class IMenuItemsRepo extends SimpleService {
   Future<List<String>> getMenuItemNames();
 }
 

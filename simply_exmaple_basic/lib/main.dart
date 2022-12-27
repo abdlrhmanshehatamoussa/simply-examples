@@ -11,15 +11,18 @@ class TestApp extends SimpleMaterialApp {
   TestApp({Key? key}) : super(key: key);
 
   @override
-  MaterialApp buildApp(SimpleServiceProvider provider, String payload) {
+  MaterialApp buildApp(SimpleProvider provider, String payload) {
     return const MaterialApp(
       home: TestWidget(),
     );
   }
 
   @override
-  Future<void> initialize(SimpleServiceRegistry registery) async {
-    registery.register<IMenuItemsRepo>(service: MenuItemsRepo());
+  Future<void> initialize(SimpleRegistry registry) async {
+    registry.register<IMenuItemsRepo>(
+      service: MenuItemsRepo(),
+      method: InjectionMethod.singleton,
+    );
   }
 
   @override
